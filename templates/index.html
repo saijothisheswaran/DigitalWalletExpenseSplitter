@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Wallet Expense Splitter</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            💰 Expense Splitter
+        </div>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#add-expense">Add Expense</a>
+            <a href="#history">History</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard" class="dashboard">
+
+            <h1>Digital Wallet Expense Splitter</h1>
+
+            <p class="subtitle">
+                Easily manage and split your group expenses
+            </p>
+
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Total Expenses</h3>
+                    <p id="total-expenses">₹0</p>
+                </div>
+
+
+                <div class="card">
+                    <h3>Transactions</h3>
+                    <p id="transaction-count">0</p>
+                </div>
+
+
+                <div class="card">
+                    <h3>Average Expense</h3>
+                    <p id="average-expense">₹0</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADD EXPENSE -->
+
+        <section id="add-expense" class="form-section">
+
+            <h2>Add New Expense</h2>
+
+
+            <form id="expense-form">
+
+                <div class="form-group">
+
+                    <label for="expense_name">
+                        Expense Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="expense_name"
+                        placeholder="Example: Dinner"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="amount">
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="Example: 1200"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="paid_by">
+                        Paid By
+                    </label>
+
+                    <input
+                        type="text"
+                        id="paid_by"
+                        placeholder="Example: Manoj"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="participants">
+                        Participants
+                    </label>
+
+                    <input
+                        type="text"
+                        id="participants"
+                        placeholder="Example: Manoj|Arun|Kumar"
+                        required
+                    >
+
+                    <small>
+                        Separate names using |
+                    </small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="date">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category" required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                        <option value="Travel">
+                            Travel
+                        </option>
+
+                        <option value="Entertainment">
+                            Entertainment
+                        </option>
+
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="submit" class="add-button">
+                    Add Expense
+                </button>
+
+            </form>
+
+
+            <p id="message"></p>
+
+        </section>
+
+
+        <!-- EXPENSE HISTORY -->
+
+        <section id="history" class="history-section">
+
+            <h2>Expense History</h2>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Expense</th>
+                            <th>Amount</th>
+                            <th>Paid By</th>
+                            <th>Participants</th>
+                            <th>Date</th>
+                            <th>Category</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="expense-table-body">
+
+                        <!-- Expenses will be added using JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Digital Wallet Expense Splitter
+        </p>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
